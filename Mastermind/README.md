@@ -44,13 +44,11 @@ and can optionally be terminated with any combination of `\r` (carriage return) 
 The server response will be two numbers `0..4` separated by one space and terminated
 with `\r\n`. This allows for testing the server with a any Telnet program.
 
-## Running the test server
+## Running the test server in Elixir
 
-Make sure you have Python 3 installed, then go into the Python directory in this
-repo and run:
 
 ```shell
-./mastermind_server 0.0.0.0 4321
+./ies -s mix 
 ```
 
 You will see debug messages from the server in this terminal, including the random
@@ -61,27 +59,12 @@ colors it picked.
 In a separate terminal run the telnet program to connect to the server:
 
 ```shell
-telnet localhost 4321
+telnet localhost 4040
 ```
 
-Then simply enter your guess as a single line of four numbers separated by spaces
+Then simply enter your guess as a single line of four numbers 
 and the server will respond with a line of two numbers as described above. If you
-guess right (or cheat by looking at the server log), the server will respond with
-`4 4` and close the connection.
+guess right (or cheat by looking at the server log), the server will congradulate you.
 
-If you want to quit the telnet client you can hit `control-]` and type `quit` at the
-telnet prompt.
 
-## Using the test client
-
-From the `Python` directory open a separate terminal to run the client:
-
-```shell
-./mastermind_client localhost 4321
-```
-
-Then enter your guess as a single line of four numbers separated by spaces
-and the server will respond with a line of two numbers as described above. If you
-guess right (or cheat by looking at the server log), the server will respond with
-`4 4` and close the connection.
 
